@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=MoveableAnimatedActor
+comment1.params=
+comment1.target=void\ act()
+comment2.params=a
+comment2.target=void\ setAnimation(Animation)
+comment3.params=a
+comment3.target=void\ setWalkRightAnimation(Animation)
+comment4.params=a
+comment4.target=void\ setIdleAnimation(Animation)
+comment5.params=a
+comment5.target=void\ setIdleLeftAnimation(Animation)
+comment6.params=a
+comment6.target=void\ setWalkLeftAnimation(Animation)
+comment7.params=a
+comment7.target=void\ setFallingLeftAnimation(Animation)
+comment8.params=a
+comment8.target=void\ setFallingRightAnimation(Animation)
+numComments=9

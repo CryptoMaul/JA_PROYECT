@@ -1,0 +1,57 @@
+import mayflower.*;
+
+public class Cat extends MoveableAnimatedActor
+{
+    private Animation walkLeft;
+    private Animation idle;
+    private Animation walkRight;
+    private Animation idleLeft;
+    private Animation fallingLeft;
+    private Animation fallingRight;
+    public Cat() 
+    {
+        String[] arr = new String[10];
+        for(int i=0;i<10;i++){
+            arr[i]="img/cat/Walk ("+(i+1)+").png";
+        }
+        walkRight=new Animation(50,arr);
+        walkRight.setBounds(18,5,54,80);
+        setWalkRightAnimation(walkRight);
+        
+        String[] arr2 = new String[10];
+        for(int i=0;i<10;i++){
+            arr2[i]="img/cat/Idle ("+(i+1)+").png";
+        }
+        idle=new Animation(50,arr2);
+        idle.setBounds(18,5,54,80);
+        setIdleAnimation(idle);
+        setAnimation(idle);
+        
+        idleLeft=new Animation(50,arr2);
+        idleLeft.mirrorHorizontally();
+        idleLeft.setBounds(28,5,54,80);
+        setIdleLeftAnimation(idleLeft);
+        
+        walkLeft=new Animation(50,arr);
+        walkLeft.mirrorHorizontally();
+        walkLeft.setBounds(28,5,54,80);
+        setWalkLeftAnimation(walkLeft);
+        
+        String[] arr3 = new String[8];
+        for(int i=0;i<8;i++){
+            arr3[i]="img/cat/Fall ("+(i+1)+").png";
+        }
+        fallingRight=new Animation(50,arr3);
+        fallingRight.setBounds(18,5,54,80);
+        setFallingRightAnimation(fallingRight);
+        
+        fallingLeft=new Animation(50,arr3);
+        fallingLeft.mirrorHorizontally();
+        fallingLeft.setBounds(28,5,54,80);
+        setFallingLeftAnimation(fallingLeft);
+    }
+    public void act()
+    {
+        super.act();
+    }
+}

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Animation
+comment1.params=n\ arr
+comment1.target=Animation(int,\ java.lang.String[])
+comment2.params=
+comment2.target=int\ getFrameRate()
+comment3.params=
+comment3.target=mayflower.MayflowerImage\ getNextFrame()
+comment4.params=percent
+comment4.target=void\ setTransparency(int)
+comment5.params=scaleX\ scaleY
+comment5.target=void\ setScale(int,\ int)
+numComments=6

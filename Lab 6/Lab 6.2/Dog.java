@@ -1,0 +1,20 @@
+import mayflower.*;
+
+public class Dog extends AnimatedActor
+{
+    private Animation die;
+    public Dog() 
+    {
+        String[] arr = new String[10];
+        for(int i=0;i<10;i++){
+            arr[i]="img/dog/Dead ("+(i+1)+").png";
+        }
+        die=new Animation(50,arr);
+        setAnimation(die);
+        die.Transparency(10);
+    }
+    public void act()
+    {
+        super.act();
+    }
+}
