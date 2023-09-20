@@ -1,0 +1,20 @@
+import mayflower.*;
+
+public class NinjaGirl extends AnimatedActor
+{
+    private final Animation attack;
+    public NinjaGirl() 
+    {
+        String[] arr = new String[9];
+        for(int i=0;i<9;i++){
+            arr[i]="img/ninjagirl/Attack__00"+(i+1)+".png";
+        }
+        attack=new Animation(50,arr);
+        setAnimation(attack);
+        attack.Transparency(20);
+    }
+    public void act()
+    {
+        super.act();
+    }
+}
