@@ -20,7 +20,7 @@ public class MoveableAnimatedActor extends AnimatedActor{
         int y = getY();
         int w = getWidth();
         int h = getHeight();
-        if(isFalling()==true){
+        if(isFalling()){
             if(direction.equals("left")){
                 newAction="fallingLeft";
             }

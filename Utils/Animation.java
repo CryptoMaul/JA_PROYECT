@@ -5,8 +5,8 @@ import mayflower.*;
 
 
 public class Animation{
-    private MayflowerImage[] frames;
-    private int framerate;
+    private final MayflowerImage[] frames;
+    private final int framerate;
     private int currentFrame;
     public Animation(int x, String[] y)
     {
