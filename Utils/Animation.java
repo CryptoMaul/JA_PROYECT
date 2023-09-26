@@ -8,12 +8,12 @@ public class Animation{
     private final MayflowerImage[] frames;
     private final int framerate;
     private int currentFrame;
-    public Animation(int x, String[] y)
+    public Animation(int x, String[] imageFiles)
     {
         framerate = x;
-        frames = new MayflowerImage[y.length];
-        for(int i=0;i<y.length;i++){
-            frames[i] = new MayflowerImage(y[i]);
+        frames = new MayflowerImage[imageFiles.length];
+        for(int i=0;i<imageFiles.length;i++){
+            frames[i] = new MayflowerImage(imageFiles[i]);
             frames[i].scale(100,87);
         }
     }
