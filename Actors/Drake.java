@@ -41,8 +41,6 @@ public class Drake extends MoveableAnimatedDrake {
         setWalkLeftAnimation(runLeftAnimation);
         setIdleRightAnimation(idleRightAnimation);
         setIdleLeftAnimation(idleLeftAnimation);
-
-
     }
 
     @Override

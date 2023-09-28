@@ -1,5 +1,6 @@
 package Utils;
 
+import Actors.GreyStone;
 import Actors.Ground;
 import mayflower.*;
 
@@ -20,7 +21,7 @@ public class GravityActor extends Actor{
     }
     public boolean isBlocked(){
         //TODO actually change Ground to actual class name
-        return isTouching(Ground.class);
+        return isTouching(GreyStone.class);
     }
     public boolean isFalling(){
         boolean ret;
