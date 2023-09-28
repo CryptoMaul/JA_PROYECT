@@ -2,16 +2,15 @@ package Utils;
 
 import mayflower.*;
 
-public class MoveableAnimatedActor extends AnimatedActor{
-    private Animation walkRight;
-    private Animation idle;
-    private Animation walkLeft;
+public class MoveableAnimatedDrake extends AnimatedActor{
+    private Animation runRight;
+    private Animation idleRight;
+    private Animation runLeft;
     private Animation idleLeft;
-    private Animation fallingLeft;
-    private Animation fallingRight;
     private String currentAction="idle";
     private String direction="right";
     public void act(){
+        /*
         String newAction = null;
         if(currentAction==null){
             newAction="idle";
@@ -54,51 +53,60 @@ public class MoveableAnimatedActor extends AnimatedActor{
             if(!currentAction.equals(newAction)){
                 if(newAction.equals("walkRight")){
                     currentAction="walkRight";
-                    setAnimation(walkRight);
+                    setAnimation(runRight);
                 }
                 if(newAction.equals("idle")){
                     currentAction="idle";
-                    setAnimation(idle);
+                    setAnimation(idleRight);
                 }
                 if(newAction.equals("walkLeft")){
                     currentAction="walkLeft";
-                    setAnimation(walkLeft);
+                    setAnimation(runLeft);
                 }
                 if(newAction.equals("idleLeft")){
                     currentAction="idleLeft";
                     setAnimation(idleLeft);
                 }
-                if(newAction.equals("fallingLeft")){
-                    currentAction="fallingLeft";
-                    setAnimation(fallingLeft);
-                }
-                if(newAction.equals("fallingRight")){
-                    currentAction="fallingRight";
-                    setAnimation(fallingRight);
-                }
             }
         }
+         */
+        int x = getX();
+        int y = getY();
+        int w = getWidth();
+        int h = getHeight();
+        
+        if(Mayflower.isKeyDown(Keyboard.KEY_RIGHT)){
+            setLocation(x+1,y);
+            setAnimation(runRight);
+            direction = "right";
+        } else if(Mayflower.isKeyDown(Keyboard.KEY_LEFT)){
+            setLocation(x-1,y);
+            setAnimation(runLeft);
+            direction = "left";
+        } else if (direction.equals("right")){
+            setAnimation(idleRight);
+        } else if(direction.equals("left")){
+            setAnimation(idleLeft);
+        }
+        
+        
+        
+
         super.act();
     }
     public void setAnimation(Animation a){
         super.setAnimation(a);
     }
     public void setWalkRightAnimation(Animation a){
-        walkRight=a;
+        runRight=a;
     }
-    public void setIdleAnimation(Animation a){
-        idle=a;
+    public void setIdleRightAnimation(Animation a){
+        idleRight=a;
     }
     public void setIdleLeftAnimation(Animation a){
         idleLeft=a;
     }
     public void setWalkLeftAnimation(Animation a){
-        walkLeft=a;
-    }
-    public void setFallingLeftAnimation(Animation a){
-        fallingLeft=a;
-    }
-    public void setFallingRightAnimation(Animation a){
-        fallingRight=a;
+        runLeft=a;
     }
 }

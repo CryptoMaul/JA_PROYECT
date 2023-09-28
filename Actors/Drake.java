@@ -1,18 +1,26 @@
 package Actors;
 
 import Utils.Animation;
-import Utils.GravityActor;
-import mayflower.Actor;
+import Utils.MoveableAnimatedDrake;
 
-public class Drake extends GravityActor {
+public class Drake extends MoveableAnimatedDrake {
 
     public Drake(){
-        String[] idleArray = new String[11];
-        for(int i = 0; i<idleArray.length; i++){
-            idleArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Idle/Idle_"+(i+1)+".png";
+
+        String[] idleRightArray = new String[11];
+        for(int i = 0; i<idleRightArray.length; i++){
+            idleRightArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Idle/Idle_"+(i+1)+".png";
         }
-        Animation idleAnimation = new Animation(50, idleArray);
-        idleAnimation.setScale(64, 64);
+        Animation idleRightAnimation = new Animation(50, idleRightArray);
+        idleRightAnimation.setScale(64, 64);
+
+        String[] idleLeftArray = new String[11];
+        for(int i = 0; i<idleLeftArray.length; i++){
+            idleLeftArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Idle/Idle_"+(i+1)+".png";
+        }
+        Animation idleLeftAnimation = new Animation(50, idleLeftArray);
+        idleLeftAnimation.setScale(64, 64);
+        idleLeftAnimation.mirrorHorizontally();
 
         String[] runRightArray = new String[12];
         for(int i = 0; i<runRightArray.length; i++){
@@ -28,6 +36,13 @@ public class Drake extends GravityActor {
         Animation runLeftAnimation = new Animation(50, runLeftArray);
         runLeftAnimation.setScale(64, 64);
         runLeftAnimation.mirrorHorizontally();
+
+        setWalkRightAnimation(runRightAnimation);
+        setWalkLeftAnimation(runLeftAnimation);
+        setIdleRightAnimation(idleRightAnimation);
+        setIdleLeftAnimation(idleLeftAnimation);
+
+
     }
 
     @Override
