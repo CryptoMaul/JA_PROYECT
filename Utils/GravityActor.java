@@ -6,22 +6,48 @@ import mayflower.*;
 
 
 public class GravityActor extends Actor{
-    private Timer timer = new Timer(20000);
-    private static int increase = 0;
+
+    public int initialVelocity = 25;
+    private int increase = 0;
+    private boolean jump = false;
+    private int acc = 2;
+    private int velocity;
+
+
     public void act(){
-        if(timer.isDone() && increase < 7){
-            increase++;
-            timer.reset();
+        int x = getX();
+        int y = getY();
+
+        if(isBlocked()) {
+            jump = false;
+            velocity = 0;
+
+        }
+        if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !jump && isBlocked()) {
+            jump = true;
+            velocity = initialVelocity;
+        }
+        if(jump){
+            setLocation(x, y-velocity);
+            velocity -= acc;
         }
 
-        setLocation(getX(),getY()+1 + increase);
-        if(isBlocked()){
-            setLocation(getX(),getY()-1- increase);
+        boolean oldBlocked = isBlocked();
+        if(!jump && !isBlocked()){
+            setLocation(x, y+initialVelocity);
+            velocity += acc;
         }
+        if(isBlocked()) {
+            jump = false;
+            while (!oldBlocked && isBlocked())
+                setLocation(x, --y);
+            velocity = 0;
+
+        }
+
     }
     public boolean isBlocked(){
-        //TODO actually change Ground to actual class name
-        return isTouching(GreyStone.class);
+        return isTouching(Ground.class);
     }
     public boolean isFalling(){
         boolean ret;
