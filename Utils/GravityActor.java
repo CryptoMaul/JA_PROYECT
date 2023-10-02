@@ -7,7 +7,7 @@ import mayflower.*;
 
 public class GravityActor extends Actor{
 
-    public int initialVelocity = 25;
+    public int initialVelocity = 28;
     private int increase = 0;
     private boolean jump = false;
     private int acc = 2;
@@ -17,6 +17,7 @@ public class GravityActor extends Actor{
     public void act(){
         int x = getX();
         int y = getY();
+        jump = true;
 
         if(isBlocked()) {
             jump = false;
