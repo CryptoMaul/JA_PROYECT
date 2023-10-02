@@ -100,7 +100,7 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             setAnimation(idleLeft);
         }
 
-
+        //
         super.act();
     }
 
