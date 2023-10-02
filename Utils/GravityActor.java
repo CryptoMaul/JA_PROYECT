@@ -23,10 +23,7 @@ public class GravityActor extends Actor{
             velocity = 0;
 
         }
-        if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !jump && isBlocked()) {
-            jump = true;
-            velocity = initialVelocity;
-        }
+
         if(jump){
             setLocation(x, y-velocity);
             velocity -= acc;
@@ -39,21 +36,35 @@ public class GravityActor extends Actor{
         }
         if(isBlocked()) {
             jump = false;
-            while (!oldBlocked && isBlocked())
-                setLocation(x, --y);
+            if (isBlocked())
+                setLocation(x, y);
             velocity = 0;
 
         }
 
     }
     public boolean isBlocked(){
+
         return isTouching(Ground.class);
+
     }
     public boolean isFalling(){
         boolean ret;
         setLocation(getX(),getY()+1+increase);
-        ret=isTouching(Ground.class);
+        ret=isTouching(Ground .class);
         setLocation(getX(),getY()-1-increase);
         return !ret;
+    }
+
+    public boolean isJump() {
+        return jump;
+    }
+
+    public void setJump(boolean jump) {
+        this.jump = jump;
+    }
+
+    public void setVelocity() {
+        this.velocity = initialVelocity;
     }
 }

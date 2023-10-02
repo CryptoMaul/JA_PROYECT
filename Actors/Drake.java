@@ -14,6 +14,7 @@ public class Drake extends MoveableAnimatedDrake {
         Animation idleRightAnimation = new Animation(50, idleRightArray);
         idleRightAnimation.setScale(64, 64);
 
+
         String[] idleLeftArray = new String[11];
         for(int i = 0; i<idleLeftArray.length; i++){
             idleLeftArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Idle/Idle_"+(i+1)+".png";

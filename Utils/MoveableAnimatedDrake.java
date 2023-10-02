@@ -2,14 +2,15 @@ package Utils;
 
 import mayflower.*;
 
-public class MoveableAnimatedDrake extends AnimatedActor{
+public class MoveableAnimatedDrake extends AnimatedActor {
     private Animation runRight;
     private Animation idleRight;
     private Animation runLeft;
     private Animation idleLeft;
-    private String currentAction="idle";
-    private String direction="right";
-    public void act(){
+    private String currentAction = "idle";
+    private String direction = "right";
+
+    public void act() {
         /*
         String newAction = null;
         if(currentAction==null){
@@ -74,45 +75,52 @@ public class MoveableAnimatedDrake extends AnimatedActor{
         int y = getY();
         int w = getWidth();
         int h = getHeight();
-        
-        if(Mayflower.isKeyDown(Keyboard.KEY_RIGHT)){
-            setLocation(x+5,y);
+
+        if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
+            setLocation(x + 5, y);
             setAnimation(runRight);
             direction = "right";
             if (isBlocked()) {
                 setLocation(x - 5, y);
             }
-        } else if(Mayflower.isKeyDown(Keyboard.KEY_LEFT)){
-            setLocation(x-5,y);
+        } else if (Mayflower.isKeyDown(Keyboard.KEY_LEFT)) {
+            setLocation(x - 5, y);
             setAnimation(runLeft);
             direction = "left";
             if (isBlocked()) {
                 setLocation(x + 5, y);
             }
-        } else if (direction.equals("right")){
+        } else if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !isJump() && !isBlocked()) {
+            setJump(true);
+            setVelocity();
+            System.out.println("running");
+        } else if (direction.equals("right")) {
             setAnimation(idleRight);
-        } else if(direction.equals("left")){
+        } else if (direction.equals("left")) {
             setAnimation(idleLeft);
         }
-        
-        
-        
+
 
         super.act();
     }
-    public void setAnimation(Animation a){
+
+    public void setAnimation(Animation a) {
         super.setAnimation(a);
     }
-    public void setWalkRightAnimation(Animation a){
-        runRight=a;
+
+    public void setWalkRightAnimation(Animation a) {
+        runRight = a;
     }
-    public void setIdleRightAnimation(Animation a){
-        idleRight=a;
+
+    public void setIdleRightAnimation(Animation a) {
+        idleRight = a;
     }
-    public void setIdleLeftAnimation(Animation a){
-        idleLeft=a;
+
+    public void setIdleLeftAnimation(Animation a) {
+        idleLeft = a;
     }
-    public void setWalkLeftAnimation(Animation a){
-        runLeft=a;
+
+    public void setWalkLeftAnimation(Animation a) {
+        runLeft = a;
     }
 }

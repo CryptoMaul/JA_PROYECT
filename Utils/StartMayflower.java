@@ -6,7 +6,8 @@ import mayflower.Mayflower;
 
 public class StartMayflower extends Mayflower {
     public StartMayflower(){
-        super("project", 960, 768);
+        super("project", 970, 778);
+        Mayflower.showBounds(true);
     }
 
     @Override
