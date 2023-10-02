@@ -1,5 +1,6 @@
 package Levels;
 
+import Actors.Banana;
 import Actors.Drake;
 import Actors.GreyStone;
 import Actors.StonePlatform;
@@ -10,6 +11,7 @@ public class LevelViews extends World {
     public LevelViews(){
         addGroundTiles();
         addPlatforms();
+        addBananas();
         Drake drake = new Drake();
         addObject(drake, 100, 100);
     }
@@ -36,6 +38,17 @@ public class LevelViews extends World {
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("sP")){
                     addObject(new StonePlatform(), j*48, i*48);
+                }
+            }
+        }
+    }
+
+    public void addBananas(){
+        String[][] levelSetup = LevelSetup.ViewsLevelOne;
+        for(int i = 0; i < levelSetup.length; i++){
+            for(int j = 0; j < levelSetup[0].length; j++){
+                if(levelSetup[i][j].equals("b")){
+                    addObject(new Banana(), j*48, i*48);
                 }
             }
         }
