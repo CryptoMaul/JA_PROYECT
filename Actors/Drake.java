@@ -3,6 +3,8 @@ package Actors;
 import Utils.Animation;
 import Utils.MoveableAnimatedDrake;
 
+import java.util.Arrays;
+
 public class Drake extends MoveableAnimatedDrake {
 
     public Drake(){
@@ -38,10 +40,17 @@ public class Drake extends MoveableAnimatedDrake {
         runLeftAnimation.setScale(64, 64);
         runLeftAnimation.mirrorHorizontally();
 
+        String[] jumpArray = new String[1];
+        Arrays.fill(jumpArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Jump (32x32).png");
+        Animation jumpAnimation = new Animation(50, jumpArray);
+        jumpAnimation.setScale(64, 64);
+        jumpAnimation.mirrorHorizontally();
+
         setWalkRightAnimation(runRightAnimation);
         setWalkLeftAnimation(runLeftAnimation);
         setIdleRightAnimation(idleRightAnimation);
         setIdleLeftAnimation(idleLeftAnimation);
+        setJumpAnimation(jumpAnimation);
     }
 
     @Override
