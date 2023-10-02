@@ -76,7 +76,11 @@ public class MoveableAnimatedDrake extends AnimatedActor {
         int w = getWidth();
         int h = getHeight();
 
-        if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
+        if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !isJump() && !isBlocked()) {
+            setJump(true);
+            setVelocity();
+        }
+        else if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
             setLocation(x + 5, y);
             setAnimation(runRight);
             direction = "right";
@@ -90,10 +94,6 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             if (isBlocked()) {
                 setLocation(x + 5, y);
             }
-        } else if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !isJump() && !isBlocked()) {
-            setJump(true);
-            setVelocity();
-            System.out.println("running");
         } else if (direction.equals("right")) {
             setAnimation(idleRight);
         } else if (direction.equals("left")) {
