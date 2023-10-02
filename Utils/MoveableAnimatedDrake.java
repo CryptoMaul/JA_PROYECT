@@ -7,7 +7,10 @@ public class MoveableAnimatedDrake extends AnimatedActor {
     private Animation idleRight;
     private Animation runLeft;
     private Animation idleLeft;
-    private Animation jump;
+    private Animation jumpRight;
+    private Animation jumpLeft;
+    private Animation fallRight;
+    private Animation fallLeft;
     private String currentAction = "idle";
     private String direction = "right";
 
@@ -17,8 +20,30 @@ public class MoveableAnimatedDrake extends AnimatedActor {
 
         System.out.println(getVelocity());
         if(getVelocity()>2){
-            setAnimation(jump);
-            System.out.println("jump");
+            if(direction.equals("right")){
+                setAnimation(jumpRight);
+                if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
+                    setLocation(x + 5, y);
+                }
+            } else if(direction.equals("left")){
+                setAnimation(jumpLeft);
+                if (Mayflower.isKeyDown(Keyboard.KEY_LEFT)) {
+                    setLocation(x - 5, y);
+                }
+            }
+        } else if(getVelocity() < -2){
+            if(direction.equals("right")){
+                setAnimation(fallRight);
+                if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
+                    setLocation(x + 5, y);
+                }
+            } else if(direction.equals("left")){
+                setAnimation(fallLeft);
+                if (Mayflower.isKeyDown(Keyboard.KEY_LEFT)) {
+                    setLocation(x - 5, y);
+                }
+            }
+
         } else if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !isJump() && !isBlocked()) {
             setJump(true);
             setVelocity();
@@ -65,7 +90,17 @@ public class MoveableAnimatedDrake extends AnimatedActor {
         runLeft = a;
     }
 
-    public void setJumpAnimation(Animation a){
-        jump = a;
+    public void setJumpRightAnimation(Animation a){
+        jumpRight = a;
+    }
+
+    public void setJumpLeftAnimation(Animation a){jumpLeft = a;}
+
+    public void setFallRight(Animation a){
+        fallRight = a;
+    }
+
+    public void setFallLeft(Animation a){
+        fallLeft = a;
     }
 }

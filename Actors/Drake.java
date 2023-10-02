@@ -40,17 +40,37 @@ public class Drake extends MoveableAnimatedDrake {
         runLeftAnimation.setScale(64, 64);
         runLeftAnimation.mirrorHorizontally();
 
-        String[] jumpArray = new String[1];
-        Arrays.fill(jumpArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Jump (32x32).png");
-        Animation jumpAnimation = new Animation(50, jumpArray);
-        jumpAnimation.setScale(64, 64);
-        jumpAnimation.mirrorHorizontally();
+        String[] jumpRightArray = new String[1];
+        Arrays.fill(jumpRightArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Jump (32x32).png");
+        Animation jumpRightAnimation = new Animation(50, jumpRightArray);
+        jumpRightAnimation.setScale(64, 64);
+
+        String[] jumpLeftArray = new String[1];
+        Arrays.fill(jumpLeftArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Jump (32x32).png");
+        Animation jumpLeftAnimation = new Animation(50, jumpLeftArray);
+        jumpLeftAnimation.setScale(64, 64);
+        jumpLeftAnimation.mirrorHorizontally();
+
+        String[] fallRightArray = new String[1];
+        Arrays.fill(fallRightArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Fall (32x32).png");
+        Animation fallRightAnimation = new Animation(50, fallRightArray);
+        fallRightAnimation.setScale(64, 64);
+
+        String[] fallLeftArray = new String[1];
+        Arrays.fill(fallLeftArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Fall (32x32).png");
+        Animation fallLeftAnimation = new Animation(50, fallLeftArray);
+        fallLeftAnimation.setScale(64, 64);
+        fallLeftAnimation.mirrorHorizontally();
+
 
         setWalkRightAnimation(runRightAnimation);
         setWalkLeftAnimation(runLeftAnimation);
         setIdleRightAnimation(idleRightAnimation);
         setIdleLeftAnimation(idleLeftAnimation);
-        setJumpAnimation(jumpAnimation);
+        setJumpRightAnimation(jumpRightAnimation);
+        setJumpLeftAnimation(jumpLeftAnimation);
+        setFallLeft(fallLeftAnimation);
+        setFallRight(fallRightAnimation);
     }
 
     @Override
