@@ -11,14 +11,12 @@ public class MoveableAnimatedDrake extends AnimatedActor {
     private Animation jumpLeft;
     private Animation fallRight;
     private Animation fallLeft;
-    private String currentAction = "idle";
     private String direction = "right";
 
     public void act() {
         int x = getX();
         int y = getY();
 
-        System.out.println(getVelocity());
         if(getVelocity()>2){
             if(direction.equals("right")){
                 setAnimation(jumpRight);

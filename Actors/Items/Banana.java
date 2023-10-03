@@ -1,4 +1,4 @@
-package Actors;
+package Actors.Items;
 
 import Utils.Animation;
 import Utils.CollectableAnimatedActor;
