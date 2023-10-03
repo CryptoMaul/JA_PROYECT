@@ -7,80 +7,47 @@ public class MoveableAnimatedDrake extends AnimatedActor {
     private Animation idleRight;
     private Animation runLeft;
     private Animation idleLeft;
+    private Animation jumpRight;
+    private Animation jumpLeft;
+    private Animation fallRight;
+    private Animation fallLeft;
     private String currentAction = "idle";
     private String direction = "right";
 
     public void act() {
-        /*
-        String newAction = null;
-        if(currentAction==null){
-            newAction="idle";
-        }
         int x = getX();
         int y = getY();
-        int w = getWidth();
-        int h = getHeight();
-        if(isFalling()){
-            if(direction.equals("left")){
-                newAction="fallingLeft";
-            }
-            if(direction.equals("right")){
-                newAction="fallingRight";
-            }
-        }
-        else if(Mayflower.isKeyDown(Keyboard.KEY_RIGHT) && (x+h)<800){
-            setLocation(x+1,y);
-            direction="right";
-            newAction="walkRight";
-            if(isBlocked()){
-                setLocation(x-1,y);
-            }
-        }
-        else if(Mayflower.isKeyDown(Keyboard.KEY_LEFT) && x>0){
-            setLocation(x-1,y);
-            direction="left";
-            newAction="walkLeft";
-            if(isBlocked()){
-                setLocation(x+1,y);
-            }
-        }
-        else{
-            newAction="idle";
-            if(direction!=null && direction.equals("left")){
-                newAction="idleLeft";
-            }
-        }
-        if(newAction!=null){
-            if(!currentAction.equals(newAction)){
-                if(newAction.equals("walkRight")){
-                    currentAction="walkRight";
-                    setAnimation(runRight);
-                }
-                if(newAction.equals("idle")){
-                    currentAction="idle";
-                    setAnimation(idleRight);
-                }
-                if(newAction.equals("walkLeft")){
-                    currentAction="walkLeft";
-                    setAnimation(runLeft);
-                }
-                if(newAction.equals("idleLeft")){
-                    currentAction="idleLeft";
-                    setAnimation(idleLeft);
-                }
-            }
-        }
-         */
-        int x = getX();
-        int y = getY();
-        int w = getWidth();
-        int h = getHeight();
 
-        if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !isJump() && !isBlocked()) {
+        System.out.println(getVelocity());
+        if(getVelocity()>2){
+            if(direction.equals("right")){
+                setAnimation(jumpRight);
+                if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
+                    setLocation(x + 5, y);
+                }
+            } else if(direction.equals("left")){
+                setAnimation(jumpLeft);
+                if (Mayflower.isKeyDown(Keyboard.KEY_LEFT)) {
+                    setLocation(x - 5, y);
+                }
+            }
+        } else if(getVelocity() < -2){
+            if(direction.equals("right")){
+                setAnimation(fallRight);
+                if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
+                    setLocation(x + 5, y);
+                }
+            } else if(direction.equals("left")){
+                setAnimation(fallLeft);
+                if (Mayflower.isKeyDown(Keyboard.KEY_LEFT)) {
+                    setLocation(x - 5, y);
+                }
+            }
+
+        } else if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !isJump() && !isBlocked()) {
             setJump(true);
             setVelocity();
-        }
-        else if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
+        } else if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
             setLocation(x + 5, y);
             setAnimation(runRight);
             direction = "right";
@@ -100,7 +67,6 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             setAnimation(idleLeft);
         }
 
-        //
         super.act();
     }
 
@@ -122,5 +88,19 @@ public class MoveableAnimatedDrake extends AnimatedActor {
 
     public void setWalkLeftAnimation(Animation a) {
         runLeft = a;
+    }
+
+    public void setJumpRightAnimation(Animation a){
+        jumpRight = a;
+    }
+
+    public void setJumpLeftAnimation(Animation a){jumpLeft = a;}
+
+    public void setFallRight(Animation a){
+        fallRight = a;
+    }
+
+    public void setFallLeft(Animation a){
+        fallLeft = a;
     }
 }

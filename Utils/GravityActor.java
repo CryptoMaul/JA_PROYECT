@@ -68,4 +68,8 @@ public class GravityActor extends Actor{
     public void setVelocity() {
         this.velocity = initialVelocity;
     }
+
+    public int getVelocity() {
+        return velocity;
+    }
 }
