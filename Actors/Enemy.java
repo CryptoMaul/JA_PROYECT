@@ -1,4 +1,10 @@
 package Actors;
 
-public class Enemy {
+import mayflower.Actor;
+
+public class Enemy extends Actor {
+    @Override
+    public void act() {
+
+    }
 }
