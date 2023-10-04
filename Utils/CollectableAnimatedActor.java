@@ -1,6 +1,7 @@
 package Utils;
 
 import Actors.Drake;
+import mayflower.Actor;
 import mayflower.Mayflower;
 import mayflower.Timer;
 
@@ -9,7 +10,7 @@ import java.util.TimerTask;
 //This script is dedicated to the author of this forum post, who 20 years ago saved the world
 //https://forums.oracle.com/ords/apexds/post/cannot-resolve-symbol-in-a-timer-please-help-1124
 
-public class CollectableAnimatedActor extends AnimatedActor{
+public class CollectableAnimatedActor extends CollectableActor {
     private Animation idle;
     private Animation collected;
     private String currentAction = "idle";
@@ -33,7 +34,6 @@ public class CollectableAnimatedActor extends AnimatedActor{
             alreadyCollected = true;
 
         }
-
 
         super.act();
     }
