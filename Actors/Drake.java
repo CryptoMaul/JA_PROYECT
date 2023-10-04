@@ -47,23 +47,23 @@ public class Drake extends MoveableAnimatedDrake {
         String[] jumpRightArray = new String[1];
         Arrays.fill(jumpRightArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Jump (32x32).png");
         Animation jumpRightAnimation = new Animation(50, jumpRightArray);
-        jumpRightAnimation.setScale(64, 64);
+        jumpRightAnimation.setScale(40, 40);
 
         String[] jumpLeftArray = new String[1];
         Arrays.fill(jumpLeftArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Jump (32x32).png");
         Animation jumpLeftAnimation = new Animation(50, jumpLeftArray);
-        jumpLeftAnimation.setScale(64, 64);
+        jumpLeftAnimation.setScale(40, 40);
         jumpLeftAnimation.mirrorHorizontally();
 
         String[] fallRightArray = new String[1];
         Arrays.fill(fallRightArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Fall (32x32).png");
         Animation fallRightAnimation = new Animation(50, fallRightArray);
-        fallRightAnimation.setScale(64, 64);
+        fallRightAnimation.setScale(40, 40);
 
         String[] fallLeftArray = new String[1];
         Arrays.fill(fallLeftArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Fall (32x32).png");
         Animation fallLeftAnimation = new Animation(50, fallLeftArray);
-        fallLeftAnimation.setScale(64, 64);
+        fallLeftAnimation.setScale(40, 40);
         fallLeftAnimation.mirrorHorizontally();
 
 

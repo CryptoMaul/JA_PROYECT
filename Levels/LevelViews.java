@@ -57,6 +57,7 @@ public class LevelViews extends World {
         }
     }
 
+
     public void addApples(){
         String[][] levelSetup = LevelSetup.ViewsLevelOne;
         LevelSetup.addRandomItem(levelSetup, "a");

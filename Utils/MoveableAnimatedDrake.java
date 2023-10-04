@@ -42,17 +42,17 @@ public class MoveableAnimatedDrake extends AnimatedActor {
                 }
             }
 
-        } else if (Mayflower.isKeyDown(Keyboard.KEY_SPACE) && y > 0 && !isJump() && !isBlocked()) {
+        } else if ((Mayflower.isKeyDown(Keyboard.KEY_SPACE) || Mayflower.isKeyDown(Keyboard.KEY_W)) && y > 0 && !isJump() && !isBlocked()) {
             setJump(true);
             setVelocity();
-        } else if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT)) {
+        } else if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT) || Mayflower.isKeyDown(Keyboard.KEY_D)) {
             setLocation(x + 5, y);
             setAnimation(runRight);
             direction = "right";
             if (isBlocked()) {
                 setLocation(x - 5, y);
             }
-        } else if (Mayflower.isKeyDown(Keyboard.KEY_LEFT)) {
+        } else if (Mayflower.isKeyDown(Keyboard.KEY_LEFT) || Mayflower.isKeyDown(Keyboard.KEY_A)) {
             setLocation(x - 5, y);
             setAnimation(runLeft);
             direction = "left";
