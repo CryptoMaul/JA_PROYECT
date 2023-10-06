@@ -12,7 +12,7 @@ public class LevelSetup {
                                       {"gS", "", "gS", "gS", "gS", "gS", "", "", "", "", "", "", "", "", "gS", "gS", "", "", "", ""},
                                       {"gS", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "gS", "gS", "gS"},
                                       {"gS", "", "", "", "", "", "", "gS", "", "", "", "", "", "", "", "", "", "", "", "gS"},
-                                      {"gS", "", "", "", "", "", "", "", "", "", "", "s", "", "", "", "", "", "", "", "gS"},
+                                      {"gS", "", "", "", "", "", "", "", "", "fM", "", "s", "", "", "", "", "", "", "", "gS"},
                                       {"gS", "", "", "", "", "", "", "", "gS", "gS", "gS", "gS", "", "", "", "", "", "", "", "gS"},
                                       {"gS", "", "", "", "", "", "gS", "", "", "", "", "", "", "", "", "", "", "", "", "gS"},
                                       {"gS", "", "", "gS", "gS", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "gS"},
@@ -21,27 +21,13 @@ public class LevelSetup {
 
     public static void addRandomItem(String[][] arr, String item){
 
-        for(int i = 1; i < arr.length - 1; i++){
-            for(int j = 1; j < arr[0].length-1; j++){
-                if(isEmpty(arr, i, j) && (int) ((Math.random()*18)+1) == 18){
+        for(int i = 1; i < arr.length - 1; i++) {
+            for (int j = 1; j < arr[0].length - 1; j++) {
+                if (isEmpty(arr, i, j) && (int) ((Math.random() * 18) + 1) == 18) {
                     arr[i][j] = item;
                 }
             }
         }
-
-        /*
-
-
-            for(int j = 0; j < arr[0].length; j++){
-                if(randomItemNotInColumn(arr, j, item)){
-                    int randInt = (int) (Math.random()*3);
-                    if(randInt == 0 && arr[1][j].equals("")){
-                        arr[1][j] = item;
-                    }
-                }
-            }
-
-         */
     }
 
     public static boolean randomItemNotInColumn(String[][] arr, int j, String item){

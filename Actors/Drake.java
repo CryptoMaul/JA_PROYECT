@@ -10,6 +10,8 @@ import java.util.Arrays;
 public class Drake extends MoveableAnimatedDrake {
 
     public static int health = 3;
+    int x = 32;
+
 
     public Drake(){
 
@@ -18,7 +20,7 @@ public class Drake extends MoveableAnimatedDrake {
             idleRightArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Idle/Idle_"+(i+1)+".png";
         }
         Animation idleRightAnimation = new Animation(50, idleRightArray);
-        idleRightAnimation.setScale(40, 40);
+        idleRightAnimation.setScale(x, x);
 
 
         String[] idleLeftArray = new String[11];
@@ -26,7 +28,7 @@ public class Drake extends MoveableAnimatedDrake {
             idleLeftArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Idle/Idle_"+(i+1)+".png";
         }
         Animation idleLeftAnimation = new Animation(50, idleLeftArray);
-        idleLeftAnimation.setScale(40, 40);
+        idleLeftAnimation.setScale(x, x);
         idleLeftAnimation.mirrorHorizontally();
 
         String[] runRightArray = new String[12];
@@ -34,36 +36,36 @@ public class Drake extends MoveableAnimatedDrake {
             runRightArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Run/Run_"+(i+1)+".png";
         }
         Animation runRightAnimation = new Animation(50, runRightArray);
-        runRightAnimation.setScale(40, 40);
+        runRightAnimation.setScale(x, x);
 
         String[] runLeftArray = new String[12];
         for(int i = 0; i<runLeftArray.length; i++){
             runLeftArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Run/Run_"+(i+1)+".png";
         }
         Animation runLeftAnimation = new Animation(50, runLeftArray);
-        runLeftAnimation.setScale(40, 40);
+        runLeftAnimation.setScale(x, x);
         runLeftAnimation.mirrorHorizontally();
 
         String[] jumpRightArray = new String[1];
         Arrays.fill(jumpRightArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Jump (32x32).png");
         Animation jumpRightAnimation = new Animation(50, jumpRightArray);
-        jumpRightAnimation.setScale(40, 40);
+        jumpRightAnimation.setScale(x, x);
 
         String[] jumpLeftArray = new String[1];
         Arrays.fill(jumpLeftArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Jump (32x32).png");
         Animation jumpLeftAnimation = new Animation(50, jumpLeftArray);
-        jumpLeftAnimation.setScale(40, 40);
+        jumpLeftAnimation.setScale(x, x);
         jumpLeftAnimation.mirrorHorizontally();
 
         String[] fallRightArray = new String[1];
         Arrays.fill(fallRightArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Fall (32x32).png");
         Animation fallRightAnimation = new Animation(50, fallRightArray);
-        fallRightAnimation.setScale(40, 40);
+        fallRightAnimation.setScale(x, x);
 
         String[] fallLeftArray = new String[1];
         Arrays.fill(fallLeftArray, "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Fall (32x32).png");
         Animation fallLeftAnimation = new Animation(50, fallLeftArray);
-        fallLeftAnimation.setScale(40, 40);
+        fallLeftAnimation.setScale(x, x);
         fallLeftAnimation.mirrorHorizontally();
 
 

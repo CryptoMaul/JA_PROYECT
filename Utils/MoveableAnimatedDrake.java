@@ -1,5 +1,6 @@
 package Utils;
 
+import Actors.Spike;
 import mayflower.*;
 
 public class MoveableAnimatedDrake extends AnimatedActor {
@@ -12,6 +13,7 @@ public class MoveableAnimatedDrake extends AnimatedActor {
     private Animation fallRight;
     private Animation fallLeft;
     private String direction = "right";
+    private int health = 5;
 
     public void act() {
         int x = getX();
@@ -65,6 +67,12 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             setAnimation(idleLeft);
         }
 
+        if(isTouching()){
+            health--;
+            setLocation(100, 100);
+        }
+
+
         super.act();
     }
 
@@ -100,5 +108,9 @@ public class MoveableAnimatedDrake extends AnimatedActor {
 
     public void setFallLeft(Animation a){
         fallLeft = a;
+    }
+
+    public boolean isTouching(){
+        return isTouching(Spike.class);
     }
 }

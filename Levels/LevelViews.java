@@ -1,6 +1,8 @@
 package Levels;
 
 import Actors.*;
+import Actors.Enemies.Bound;
+import Actors.Enemies.FrogMan;
 import Actors.Items.Apple;
 import Actors.Items.Banana;
 import mayflower.World;
@@ -14,6 +16,7 @@ public class LevelViews extends World {
         addApples();
         addSpikes();
         addSpikesUpside();
+        addFrog();
         Drake drake = new Drake();
         addObject(drake, 100, 100);
     }
@@ -75,7 +78,7 @@ public class LevelViews extends World {
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("s")){
-                    addObject(new Spike(), j*48, i*48);
+                    addObject(new Spike(), j*48, i*48+24);
                 }
             }
         }
@@ -90,6 +93,19 @@ public class LevelViews extends World {
                 }
             }
         }
+    }
+
+    public void addFrog(){
+        String[][] levelSetup = LevelSetup.ViewsLevelOne;
+        for(int i = 0; i < levelSetup.length; i++){
+            for(int j = 0; j < levelSetup[0].length; j++){
+                if(levelSetup[i][j].equals("fM")){
+                    addObject(new FrogMan(), j*48, i*48);
+                }
+            }
+        }
+        addObject(new Bound(), 540, 520);
+        addObject(new Bound(), 384, 520);
     }
 }
 
