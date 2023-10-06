@@ -1,10 +1,8 @@
 package Levels;
 
+import Actors.*;
 import Actors.Items.Apple;
 import Actors.Items.Banana;
-import Actors.Drake;
-import Actors.GreyStone;
-import Actors.StonePlatform;
 import mayflower.World;
 
 public class LevelViews extends World {
@@ -12,6 +10,7 @@ public class LevelViews extends World {
     public LevelViews(){
         addGroundTiles();
         addPlatforms();
+        addSpike();
         addBananas();
         addApples();
         Drake drake = new Drake();
@@ -28,7 +27,9 @@ public class LevelViews extends World {
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("gS")){
+
                     addObject(new GreyStone(), j*48, i*48);
+                    addObject(new GreyStoneFake(), j*48, i*48 + 6);
                 }
             }
         }
@@ -65,6 +66,17 @@ public class LevelViews extends World {
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("a")){
                     addObject(new Apple(), j*48, i*48);
+                }
+            }
+        }
+    }
+
+    public void addSpike(){
+        String[][] levelSetup = LevelSetup.ViewsLevelOne;
+        for(int i = 0; i < levelSetup.length; i++){
+            for(int j = 0; j < levelSetup[0].length; j++){
+                if(levelSetup[i][j].equals("s")){
+                    addObject(new Spike(), j*48 + 1, i*48);
                 }
             }
         }

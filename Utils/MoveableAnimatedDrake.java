@@ -1,5 +1,6 @@
 package Utils;
 
+import Levels.LevelTwo;
 import mayflower.*;
 
 public class MoveableAnimatedDrake extends AnimatedActor {
@@ -43,26 +44,30 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             }
 
         } else if ((Mayflower.isKeyDown(Keyboard.KEY_SPACE) || Mayflower.isKeyDown(Keyboard.KEY_W)) && y > 0 && !isJump() && !isBlocked()) {
-            setJump(true);
             setVelocity();
         } else if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT) || Mayflower.isKeyDown(Keyboard.KEY_D)) {
             setLocation(x + 5, y);
             setAnimation(runRight);
             direction = "right";
-            if (isBlocked()) {
+            if (isBlocked() || isTouchingFake()) {
                 setLocation(x - 5, y);
             }
         } else if (Mayflower.isKeyDown(Keyboard.KEY_LEFT) || Mayflower.isKeyDown(Keyboard.KEY_A)) {
             setLocation(x - 5, y);
             setAnimation(runLeft);
             direction = "left";
-            if (isBlocked()) {
+            if (isBlocked() || isTouchingFake()) {
                 setLocation(x + 5, y);
             }
         } else if (direction.equals("right")) {
             setAnimation(idleRight);
         } else if (direction.equals("left")) {
             setAnimation(idleLeft);
+        }
+
+        LevelTwo viewTwo = new LevelTwo();
+        if(Mayflower.isKeyDown(Keyboard.KEY_Y)){
+            Mayflower.setWorld(viewTwo);
         }
 
         super.act();
