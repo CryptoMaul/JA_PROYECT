@@ -1,4 +1,4 @@
-package Actors;
+package Actors.Ground;
 
 import mayflower.Actor;
 

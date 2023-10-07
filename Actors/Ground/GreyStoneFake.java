@@ -1,7 +1,6 @@
-package Actors;
+package Actors.Ground;
 
 
-import mayflower.Actor;
 import mayflower.MayflowerImage;
 
 public class GreyStoneFake extends FakePlatform {

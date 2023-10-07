@@ -1,7 +1,8 @@
-package Actors;
+package Actors.Ground;
 
+import Actors.Ground.Ground;
 import mayflower.*;
-public class GreyStone extends Ground{
+public class GreyStone extends Ground {
 
     public GreyStone(){
         MayflowerImage img = new MayflowerImage("Pixel Adventure 1/Assets/Terrain/GreyStone.png");

@@ -4,7 +4,6 @@ import Utils.Animation;
 import Utils.MoveableAnimatedDrake;
 import mayflower.Mayflower;
 import mayflower.World;
-
 import java.util.Arrays;
 
 public class Drake extends MoveableAnimatedDrake {
@@ -12,9 +11,9 @@ public class Drake extends MoveableAnimatedDrake {
     public static int health = 3;
     int x = 32;
 
-
     public Drake(){
 
+        System.out.println("drake work" + this.getWorld());
         String[] idleRightArray = new String[11];
         for(int i = 0; i<idleRightArray.length; i++){
             idleRightArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Idle/Idle_"+(i+1)+".png";
@@ -68,6 +67,7 @@ public class Drake extends MoveableAnimatedDrake {
         fallLeftAnimation.setScale(x, x);
         fallLeftAnimation.mirrorHorizontally();
 
+        /*
         String[] climbRightArray = new String[5];
         for(int i = 0; i<climbRightArray.length; i++){
             climbRightArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Climb/Climb_"+(i+1)+".png";
@@ -83,6 +83,8 @@ public class Drake extends MoveableAnimatedDrake {
         climbLeftAnimation.setScale(x, x);
         climbLeftAnimation.mirrorHorizontally();
 
+         */
+
 
         setWalkRightAnimation(runRightAnimation);
         setWalkLeftAnimation(runLeftAnimation);
@@ -92,13 +94,12 @@ public class Drake extends MoveableAnimatedDrake {
         setJumpLeftAnimation(jumpLeftAnimation);
         setFallLeft(fallLeftAnimation);
         setFallRight(fallRightAnimation);
-        setClimbRight(climbRightAnimation);
-        setClimbLeft(climbLeftAnimation);
+        //setClimbRight(climbRightAnimation);
+        //setClimbLeft(climbLeftAnimation);
     }
 
     @Override
     public void act() {
-        super.act();
 
         if(this.isTouching(Enemy.class)){
             health--;
@@ -106,14 +107,9 @@ public class Drake extends MoveableAnimatedDrake {
             //Mayflower.playSound();
         }
 
-        if(this.isTouching(AppleHealth.class)){
-            health++;
-        }
-
-
+        super.act();
     }
 
-    @Override
     public boolean isDone() {
         return super.isDone();
     }

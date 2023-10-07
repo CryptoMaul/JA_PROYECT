@@ -3,7 +3,7 @@ package Actors.Items;
 import Utils.Animation;
 import Utils.CollectableAnimatedActor;
 
-public class Banana extends CollectableAnimatedActor {
+public class Banana extends Collectable {
 
     public Banana(){
         String[] idleArray = new String[17];

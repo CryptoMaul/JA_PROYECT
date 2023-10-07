@@ -3,7 +3,7 @@ package Actors.Items;
 import Utils.Animation;
 import Utils.CollectableAnimatedActor;
 
-public class Apple extends CollectableAnimatedActor {
+public class Apple extends Collectable {
 
     public Apple(){
         String[] idleArray = new String[17];

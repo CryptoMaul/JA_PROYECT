@@ -1,5 +1,6 @@
 package Utils;
 
+import Actors.Drake;
 import Actors.Ground.Ladder;
 import Actors.Items.Collectable;
 import Actors.Spike;
@@ -73,11 +74,13 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             setAnimation(idleLeft);
         }
 
+
         if(isTouching(Ladder.class) && Mayflower.isKeyDown(Keyboard.KEY_UP)){
             setLocation(getX(), getY() - 5);
         } else if(isTouching(Ladder.class) && Mayflower.isKeyDown(Keyboard.KEY_DOWN) && !isBlocked()){
-            setLocation(getX(), getY() + 1);
+            setLocation(getX(), getY() + 5);
         }
+
 
         if(isTouching(CollectableAnimatedActor.class)){
             score++;
@@ -136,6 +139,6 @@ public class MoveableAnimatedDrake extends AnimatedActor {
     public boolean isClimbing(){return isTouching(Ladder.class) && (Mayflower.isKeyDown(Keyboard.KEY_UP) || Mayflower.isKeyDown(Keyboard.KEY_DOWN));}
 
     public boolean isDone(){
-        return this.getWorld().getObjects(Collectable.class).size() == 0 && getX() > 960;
+        return this.getWorld().getObjects(Collectable.class).size() == 0 && this.getX() > 960;
     }
 }

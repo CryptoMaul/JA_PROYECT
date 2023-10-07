@@ -1,8 +1,8 @@
 package Utils;
 
-import Actors.FakePlatform;
-import Actors.GreyStone;
-import Actors.Ground;
+import Actors.Ground.FakePlatform;
+import Actors.Ground.Ground;
+import Actors.Ground.Ladder;
 import mayflower.*;
 
 
@@ -25,22 +25,23 @@ public class GravityActor extends Actor{
         if(isBlocked()) {
             jump = false;
             velocity = 0;
-
         }
 
-        if(jump){
+        if(jump && !isClimbing()){
             setLocation(x, y-velocity);
             velocity -= acc;
         }
 
-        boolean oldBlocked = isBlocked();
         if(!jump && !isBlockedDown()){
             setLocation(x, y+initialVelocity);
+
             velocity += acc;
+                System.out.println("ran");
+
+            //velocity += acc;
         }
 
         if(isTouchingFake()){
-
             jump = true;
             setLocation(x, y);
             velocity = 0;
@@ -51,8 +52,18 @@ public class GravityActor extends Actor{
             if (isBlocked())
                 setLocation(x, y);
             velocity = 0;
-
         }
+
+        if(isClimbing()){
+            velocity = 0;
+        }
+
+        if(isClimbing()){
+            jump = false;
+        }
+
+
+
     }
     public boolean hasJustJumped() {
         return justJumped;
@@ -72,7 +83,6 @@ public class GravityActor extends Actor{
 
         if(a == null)
             return false;
-        System.out.println(this.getCenterY()-a.getCenterY() < 0);
 
         return (this.getCenterY()-a.getCenterY()< 0);
     }
@@ -84,6 +94,8 @@ public class GravityActor extends Actor{
         setLocation(getX(),getY()-1-increase);
         return !ret;
     }*/
+
+
 
     public boolean isJump() {
         return jump;
@@ -99,5 +111,9 @@ public class GravityActor extends Actor{
 
     public int getVelocity() {
         return velocity;
+    }
+
+    public boolean isClimbing(){
+        return isTouching(Ladder.class) && (Mayflower.isKeyDown(Keyboard.KEY_UP) || Mayflower.isKeyDown(Keyboard.KEY_DOWN));
     }
 }

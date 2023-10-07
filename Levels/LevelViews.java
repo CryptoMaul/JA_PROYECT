@@ -4,7 +4,8 @@ import Actors.*;
 import Actors.Enemies.Bound;
 import Actors.Enemies.FrogMan;
 import Actors.Ground.GreyStone;
-import Actors.Ground.StoneGoldLadder;
+import Actors.Ground.GreyStoneFake;
+import Actors.Ground.Ladder;
 import Actors.Items.Apple;
 import Actors.Items.Banana;
 import mayflower.Mayflower;
@@ -12,27 +13,25 @@ import mayflower.World;
 
 public class LevelViews extends World {
 
-    Drake drake = new Drake();
+    Drake drake;
 
     public LevelViews(){
         addGroundTiles();
-        addPlatforms();
-        addSpike();
         addBananas();
         addApples();
-        addSpikes();
-        addSpikesUpside();
+        addSpike();
         addFrog();
         addLadders();
-        Drake drake = new Drake();
+        drake = new Drake();
         addObject(drake, 100, 100);
+        System.out.println(drake.getWorld());
     }
 
     @Override
     public void act() {
         if(drake.isDone()) {
-            System.out.println("ran");
-            Mayflower.setWorld(new Level2());
+            System.out.println(drake.isDone());
+            Mayflower.setWorld(new LevelTwo());
         }
     }
 
@@ -44,17 +43,6 @@ public class LevelViews extends World {
 
                     addObject(new GreyStone(), j*48, i*48);
                     addObject(new GreyStoneFake(), j*48, i*48 + 6);
-                }
-            }
-        }
-    }
-
-    public void addPlatforms(){
-        String[][] levelSetup = LevelSetup.ViewsLevelOne;
-        for(int i = 0; i < levelSetup.length; i++){
-            for(int j = 0; j < levelSetup[0].length; j++){
-                if(levelSetup[i][j].equals("sP")){
-                    addObject(new StonePlatform(), j*48, i*48);
                 }
             }
         }
@@ -90,22 +78,12 @@ public class LevelViews extends World {
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("s")){
-                    addObject(new Spike(), j*48 + 1, i*48);
+                    addObject(new Spike(), j*48, i*48+24);
                 }
             }
         }
     }
 
-    public void addSpikesUpside(){
-        String[][] levelSetup = LevelSetup.ViewsLevelOne;
-        for(int i = 0; i < levelSetup.length; i++){
-            for(int j = 0; j < levelSetup[0].length; j++){
-                if(levelSetup[i][j].equals("sU")){
-                    addObject(new SpikeUpSideDown(), j*48, i*48);
-                }
-            }
-        }
-    }
 
     public void addFrog(){
         String[][] levelSetup = LevelSetup.ViewsLevelOne;
@@ -116,22 +94,23 @@ public class LevelViews extends World {
                 }
             }
         }
-        addObject(new Bound(), 528, 520);
-        addObject(new Bound(), 360, 520);
-        addObject(new Bound(), 96, 700);
-        addObject(new Bound(), 528, 700);
+        addObject(new Bound(), 576, 520);
+        addObject(new Bound(), 384, 520);
+        addObject(new Bound(), 384, 260);
+        addObject(new Bound(), 576, 260);
     }
 
     public void addLadders(){
+
         String[][] levelSetup = LevelSetup.ViewsLevelOne;
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
-                if(levelSetup[i][j].equals("sgL")){
-                    addObject(new StoneGoldLadder(), j*48, i*48 - 48);
+                if(levelSetup[i][j].equals("l")){
+                    System.out.println("add");
+                    addObject(new Ladder(), j*48, i*48 - 48);
                 }
             }
         }
-    }
-}
 
+    }
 }
