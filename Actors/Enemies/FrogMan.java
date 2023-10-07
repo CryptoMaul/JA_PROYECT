@@ -21,7 +21,7 @@ public class FrogMan extends EnemyAnimatedActor {
         }
         Animation runLeftAnimation = new Animation(50, runLeftArray);
         runLeftAnimation.mirrorHorizontally();
-        runRightAnimation.setScale(x, x);
+        runLeftAnimation.setScale(x, x);
 
         setRunLeft(runLeftAnimation);
         setRunRight(runRightAnimation);

@@ -68,6 +68,21 @@ public class Drake extends MoveableAnimatedDrake {
         fallLeftAnimation.setScale(x, x);
         fallLeftAnimation.mirrorHorizontally();
 
+        String[] climbRightArray = new String[5];
+        for(int i = 0; i<climbRightArray.length; i++){
+            climbRightArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Climb/Climb_"+(i+1)+".png";
+        }
+        Animation climbRightAnimation = new Animation(50, climbRightArray);
+        climbRightAnimation.setScale(x, x);
+
+        String[] climbLeftArray = new String[5];
+        for(int i = 0; i<climbLeftArray.length; i++){
+            climbLeftArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Climb/Climb_"+(i+1)+".png";
+        }
+        Animation climbLeftAnimation = new Animation(50, climbLeftArray);
+        climbLeftAnimation.setScale(x, x);
+        climbLeftAnimation.mirrorHorizontally();
+
 
         setWalkRightAnimation(runRightAnimation);
         setWalkLeftAnimation(runLeftAnimation);
@@ -77,6 +92,8 @@ public class Drake extends MoveableAnimatedDrake {
         setJumpLeftAnimation(jumpLeftAnimation);
         setFallLeft(fallLeftAnimation);
         setFallRight(fallRightAnimation);
+        setClimbRight(climbRightAnimation);
+        setClimbLeft(climbLeftAnimation);
     }
 
     @Override
@@ -94,5 +111,10 @@ public class Drake extends MoveableAnimatedDrake {
         }
 
 
+    }
+
+    @Override
+    public boolean isDone() {
+        return super.isDone();
     }
 }
