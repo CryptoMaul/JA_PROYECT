@@ -75,12 +75,11 @@ public class LevelTwo extends World {
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("s")){
-                    addObject(new Spike(), j*48 + 1, i*48);
+                    addObject(new Spike(), j*48, i*48+24);
                 }
             }
         }
     }
-
 
     public void addFrog(){
         String[][] levelSetup = LevelSetup.ViewsLevelTwo;

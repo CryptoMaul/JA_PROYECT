@@ -68,6 +68,12 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             if (isBlocked() || isTouchingFake()) {
                 setLocation(x + 5, y);
             }
+        } else if(isClimbing()){
+            if(direction.equals("right")){
+                setAnimation(climbRight);
+            } else {
+                setAnimation(climbLeft);
+            }
         } else if (direction.equals("right")) {
             setAnimation(idleRight);
         } else if (direction.equals("left")) {

@@ -2,9 +2,11 @@ package Utils;
 
 import mayflower.*;
 
+import java.util.Arrays;
 
 
 public class Animation{
+
     private final MayflowerImage[] frames;
     private final int framerate;
     private int currentFrame;
@@ -15,6 +17,7 @@ public class Animation{
         for(int i=0;i<imageFiles.length;i++){
             frames[i] = new MayflowerImage(imageFiles[i]);
             frames[i].scale(100,87);
+            System.out.println(imageFiles[i]);
         }
     }
     public int getFrameRate()
