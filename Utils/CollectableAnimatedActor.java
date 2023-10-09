@@ -1,9 +1,7 @@
 package Utils;
 
 import Actors.Drake;
-import mayflower.Actor;
-import mayflower.Mayflower;
-import mayflower.Timer;
+import mayflower.Color;
 
 import java.util.TimerTask;
 
@@ -17,6 +15,12 @@ public class CollectableAnimatedActor extends CollectableActor {
     private java.util.Timer remove = new java.util.Timer();
     private boolean alreadyCollected = false;
     private removeTask rt = new removeTask();
+    protected Drake superDrake;
+
+    public CollectableAnimatedActor(Drake d){
+        superDrake = d;
+    }
+
 
     @Override
     public void act() {
@@ -29,10 +33,11 @@ public class CollectableAnimatedActor extends CollectableActor {
             currentAction = "collected";
 
             if(!alreadyCollected) {
+                superDrake.incrementScore();
+                this.getWorld().showText("Score : " + superDrake.getScore(), 20 , 60, 80, Color.WHITE);
                 remove.schedule(rt, 500);
             }
             alreadyCollected = true;
-
         }
 
         super.act();
@@ -43,6 +48,10 @@ public class CollectableAnimatedActor extends CollectableActor {
     }
     public void setCollected(Animation a){
         collected = a;
+    }
+
+    public boolean isAlreadyCollected(){
+        return !currentAction.equals("idle");
     }
 
     public boolean isCollected(){
@@ -63,6 +72,8 @@ public class CollectableAnimatedActor extends CollectableActor {
             getWorld().removeObject(getClassForTimer());
         }
     }
+
+    protected void setDrake(Drake d){superDrake = d;}
 
 }
 

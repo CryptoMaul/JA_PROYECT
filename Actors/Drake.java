@@ -12,8 +12,6 @@ public class Drake extends MoveableAnimatedDrake {
     int x = 32;
 
     public Drake(){
-
-        System.out.println("drake work" + this.getWorld());
         String[] idleRightArray = new String[11];
         for(int i = 0; i<idleRightArray.length; i++){
             idleRightArray[i] = "Pixel Adventure 1/Assets/Main Characters/Virtual Guy/Idle/Idle_"+(i+1)+".png";
@@ -116,4 +114,8 @@ public class Drake extends MoveableAnimatedDrake {
     public boolean isDone() {
         return super.isDone();
     }
+
+    public int getScore(){return super.getScore();}
+
+    public int getLives(){return super.getLives();}
 }

@@ -17,7 +17,6 @@ public class Animation{
         for(int i=0;i<imageFiles.length;i++){
             frames[i] = new MayflowerImage(imageFiles[i]);
             frames[i].scale(100,87);
-            System.out.println(imageFiles[i]);
         }
     }
     public int getFrameRate()
