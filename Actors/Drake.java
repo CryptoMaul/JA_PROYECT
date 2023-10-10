@@ -1,5 +1,6 @@
 package Actors;
 
+import Actors.Enemies.SmasherAnimatedActor;
 import Utils.Animation;
 import Utils.MoveableAnimatedDrake;
 import mayflower.Mayflower;
@@ -104,7 +105,7 @@ public class Drake extends MoveableAnimatedDrake {
     @Override
     public void act() {
 
-        if(this.isTouching(Enemy.class)){
+        if(this.isTouching(Enemy.class) || this.isTouching(SmasherAnimatedActor.class)){
             health--;
             System.out.println(health);
             //Mayflower.playSound();

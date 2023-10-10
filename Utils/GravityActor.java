@@ -116,4 +116,8 @@ public class GravityActor extends Actor{
     public boolean isClimbing(){
         return isTouching(Ladder.class) && (Mayflower.isKeyDown(Keyboard.KEY_UP) || Mayflower.isKeyDown(Keyboard.KEY_DOWN));
     }
+
+    public void setAcc(int acc) {
+        this.acc = acc;
+    }
 }
