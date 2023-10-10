@@ -4,6 +4,7 @@ import Utils.AnimatedActor;
 import Utils.Animation;
 
 public class SmasherAnimatedActor extends AnimatedActor {
+    //hello
     private int originalPosition;
     private int width = 54;
     private int height = 52;

@@ -7,7 +7,7 @@ import mayflower.*;
 
 
 public class GravityActor extends Actor{
-
+    //hello
     final int initialVelocity = 25;
     private int increase = 0;
     private boolean jump = false;

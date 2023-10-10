@@ -3,6 +3,7 @@ package Levels;
 import Actors.*;
 import Actors.Enemies.Bound;
 import Actors.Enemies.FrogMan;
+import Actors.Enemies.SmasherAnimatedActor;
 import Actors.Ground.GreyStone;
 import Actors.Ground.GreyStoneFake;
 import Actors.Ground.Ladders.Ladder;
@@ -30,6 +31,7 @@ public class LevelViews extends World {
         addFrog();
         addLadders();
         addObject(drake, 100, 100);
+        addObject(new SmasherAnimatedActor(),100,100);
         showText("Score : " + drake.getScore(), 20 , 60, 80, Color.WHITE);
         showText("Lives : " + drake.getLives(), 20 , 760, 80, Color.WHITE);
         System.out.println(drake.getWorld());
