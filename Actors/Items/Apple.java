@@ -1,11 +1,14 @@
 package Actors.Items;
 
+import Actors.Drake;
 import Utils.Animation;
-import Utils.CollectableAnimatedActor;
 
 public class Apple extends Collectable {
 
-    public Apple(){
+    Drake drake;
+
+    public Apple(Drake d){
+        super(d);
         String[] idleArray = new String[17];
         for(int i = 0; i<idleArray.length; i++){
             idleArray[i] = "Pixel Adventure 1/Assets/Items/Fruits/Apple/Apple_"+(i+1)+".png";
@@ -21,11 +24,14 @@ public class Apple extends Collectable {
         Animation collectedAnimation = new Animation(50, collectedArray);
         collectedAnimation.setScale(48, 48);
         setCollected(collectedAnimation);
+        drake = d;
     }
 
     @Override
     public void act() {
         super.act();
     }
+
+    public void setDrake(){super.setDrake(drake);}
 
 }

@@ -4,10 +4,10 @@ import Actors.Drake;
 import Actors.Enemies.Bound;
 import Actors.Enemies.FrogMan;
 import Actors.Ground.BrownStone;
+import Actors.Ground.GreenStone;
 import Actors.Ground.GreyStoneFake;
 import Actors.Ground.Ladders.GoldLadder;
-import Actors.Ground.Ladders.Ladder;
-import Actors.Ground.Ladders.StoneLadder;
+import Actors.Ground.Ladders.GreenLadder;
 import Actors.Items.Apple;
 import Actors.Items.Banana;
 import Actors.Spike;
@@ -15,12 +15,12 @@ import mayflower.Color;
 import mayflower.Mayflower;
 import mayflower.World;
 
-public class LevelTwo extends World {
+public class LevelThree extends World {
 
     Drake drake;
 
-    public LevelTwo(int s, int h){
-        setBackground("Pixel Adventure 1/BackGround2.png");
+    public LevelThree(int s, int h){
+        setBackground("Pixel Adventure 1/BackGround3.png");
         addGroundTiles();
         drake = new Drake();
         addBananas();
@@ -35,10 +35,11 @@ public class LevelTwo extends World {
         showText("Lives : " + drake.getLives(), 20 , 760, 80, Color.WHITE);
         System.out.println(drake.getWorld());
     }
+
     @Override
     public void act() {
         if(drake.isDone()) {
-            Mayflower.setWorld(new LevelThree(drake.getScore(), drake.getLives()));
+            Mayflower.setWorld(new OutroWin(drake.getScore()));
         }
         if(drake.isDead()){
             Mayflower.setWorld(new OutroLose());
@@ -46,12 +47,12 @@ public class LevelTwo extends World {
     }
 
     public void addGroundTiles(){
-        String[][] levelSetup = LevelSetup.ViewsLevelTwo;
+        String[][] levelSetup = LevelSetup.ViewsLevelThree;
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("bS")){
 
-                    addObject(new BrownStone(), j*48, i*48);
+                    addObject(new GreenStone(), j*48, i*48);
                     addObject(new GreyStoneFake(), j*48, i*48 + 6);
                 }
             }
@@ -59,7 +60,7 @@ public class LevelTwo extends World {
     }
 
     public void addBananas(){
-        String[][] levelSetup = LevelSetup.ViewsLevelTwo;
+        String[][] levelSetup = LevelSetup.ViewsLevelThree;
         LevelSetup.addRandomItem(levelSetup, "b", "bS");
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
@@ -72,7 +73,7 @@ public class LevelTwo extends World {
 
 
     public void addApples(){
-        String[][] levelSetup = LevelSetup.ViewsLevelTwo;
+        String[][] levelSetup = LevelSetup.ViewsLevelThree;
         LevelSetup.addRandomItem(levelSetup, "a", "bS");
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
@@ -84,7 +85,7 @@ public class LevelTwo extends World {
     }
 
     public void addSpike(){
-        String[][] levelSetup = LevelSetup.ViewsLevelTwo;
+        String[][] levelSetup = LevelSetup.ViewsLevelThree;
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("s")){
@@ -95,7 +96,7 @@ public class LevelTwo extends World {
     }
 
     public void addFrog(){
-        String[][] levelSetup = LevelSetup.ViewsLevelTwo;
+        String[][] levelSetup = LevelSetup.ViewsLevelThree;
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("fM")){
@@ -110,13 +111,14 @@ public class LevelTwo extends World {
     }
 
     public void addLadders(){
-        String[][] levelSetup = LevelSetup.ViewsLevelTwo;
+        String[][] levelSetup = LevelSetup.ViewsLevelThree;
         for(int i = 0; i < levelSetup.length; i++){
             for(int j = 0; j < levelSetup[0].length; j++){
                 if(levelSetup[i][j].equals("l")){
-                    addObject(new GoldLadder(), j*48, i*48 - 48);
+                    addObject(new GreenLadder(), j*48, i*48 - 48);
                 }
             }
         }
+
     }
 }

@@ -16,12 +16,14 @@ public class EnemyAnimatedActor extends AnimatedActor{
 
     @Override
     public void act() {
-        setAnimation(runRight);
+
 
         if(direction.equals("right")){
             setLocation(getX()+1, getY());
+            setAnimation(runRight);
         } else {
             setLocation(getX()-1, getY());
+            setAnimation(runLeft);
         }
 
         if(isTouching(Bound.class)){

@@ -1,10 +1,9 @@
 package Utils;
 
-import Actors.Drake;
-import Actors.Ground.Ladder;
+import Actors.Enemies.FrogMan;
+import Actors.Ground.Ladders.Ladder;
 import Actors.Items.Collectable;
 import Actors.Spike;
-import Levels.LevelSetup;
 import mayflower.*;
 
 public class MoveableAnimatedDrake extends AnimatedActor {
@@ -87,13 +86,9 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             setLocation(getX(), getY() + 5);
         }
 
-
-        if(isTouching(CollectableAnimatedActor.class)){
-            score++;
-        }
-
         if(isTouching()){
             health--;
+            this.getWorld().showText("Lives : " + this.getLives(), 20 , 760, 80, Color.WHITE);
             setLocation(100, 100);
         }
 
@@ -139,7 +134,7 @@ public class MoveableAnimatedDrake extends AnimatedActor {
     public void setClimbLeft(Animation a){climbLeft = a;}
 
     public boolean isTouching(){
-        return isTouching(Spike.class);
+        return isTouching(Spike.class) || isTouching(FrogMan.class);
     }
 
     public boolean isClimbing(){return isTouching(Ladder.class) && (Mayflower.isKeyDown(Keyboard.KEY_UP) || Mayflower.isKeyDown(Keyboard.KEY_DOWN));}
@@ -147,4 +142,16 @@ public class MoveableAnimatedDrake extends AnimatedActor {
     public boolean isDone(){
         return this.getWorld().getObjects(Collectable.class).size() == 0 && this.getX() > 960;
     }
+
+    protected int getScore() { return score;}
+
+    public void setScore(int s){score = s;}
+
+    protected int getLives() { return health;}
+
+    public void setLives(int h){health = h;}
+
+    public void incrementScore(){score++;}
+
+    public boolean isDead(){return health <= 0;}
 }

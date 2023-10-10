@@ -1,9 +1,6 @@
 package Utils;
 
-import Levels.LevelTwo;
-import Levels.LevelViews;
-import Levels.TitleScreen;
-import mayflower.Keyboard;
+import Levels.IntroWorld;
 import mayflower.Mayflower;
 
 public class StartMayflower extends Mayflower {
@@ -15,11 +12,7 @@ public class StartMayflower extends Mayflower {
     @Override
     public void init() {
         Mayflower.setFullScreen(false);
-        TitleScreen w =  new TitleScreen();
-        LevelViews views = new LevelViews();
-        LevelTwo viewTwo = new LevelTwo();
-        Mayflower.setWorld(views);
-
-
+        IntroWorld w =  new IntroWorld();
+        Mayflower.setWorld(w);
     }
 }

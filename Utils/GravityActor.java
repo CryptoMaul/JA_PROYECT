@@ -2,7 +2,7 @@ package Utils;
 
 import Actors.Ground.FakePlatform;
 import Actors.Ground.Ground;
-import Actors.Ground.Ladder;
+import Actors.Ground.Ladders.Ladder;
 import mayflower.*;
 
 
