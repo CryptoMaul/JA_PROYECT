@@ -19,6 +19,7 @@ public class LevelTwo extends World {
 
     Drake drake;
 
+    //Level two takes the score and health from the previos level
     public LevelTwo(int s, int h){
         setBackground("Pixel Adventure 1/BackGround2.png");
         addGroundTiles();
@@ -45,6 +46,7 @@ public class LevelTwo extends World {
         }
     }
 
+    //Methods to add in elements from the 2d array
     public void addGroundTiles(){
         String[][] levelSetup = LevelSetup.ViewsLevelTwo;
         for(int i = 0; i < levelSetup.length; i++){

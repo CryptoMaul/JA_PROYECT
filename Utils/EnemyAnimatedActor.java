@@ -2,6 +2,7 @@ package Utils;
 
 import Actors.Enemies.Bound;
 
+//Movement of enemy actor, mainly the frog enemy
 public class EnemyAnimatedActor extends AnimatedActor{
 
     private Animation runRight;
@@ -14,6 +15,7 @@ public class EnemyAnimatedActor extends AnimatedActor{
 
     }
 
+    //Will move one way until touches a bounds, then will turn the other way
     @Override
     public void act() {
 
@@ -36,6 +38,7 @@ public class EnemyAnimatedActor extends AnimatedActor{
         super.act();
     }
 
+    //Setters for animations
     public void setRunRight(Animation a){runRight = a;}
 
     public void setRunLeft(Animation a){runLeft = a;}

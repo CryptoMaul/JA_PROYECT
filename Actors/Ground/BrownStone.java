@@ -1,6 +1,8 @@
 package Actors.Ground;
 
 import mayflower.*;
+
+//Brown stone ground for one of our levels
 public class BrownStone extends Ground {
 
     public BrownStone(){

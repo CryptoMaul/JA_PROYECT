@@ -3,6 +3,7 @@ package Actors.Ground;
 
 import mayflower.MayflowerImage;
 
+//Fake platform used in all levels
 public class GreyStoneFake extends FakePlatform {
 
     public GreyStoneFake(){

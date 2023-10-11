@@ -3,6 +3,7 @@ package Actors.Ground;
 import mayflower.Mayflower;
 import mayflower.MayflowerImage;
 
+//Green stone ground class
 public class GreenStone extends Ground{
 
     public GreenStone(){

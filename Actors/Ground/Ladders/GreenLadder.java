@@ -2,6 +2,7 @@ package Actors.Ground.Ladders;
 
 import mayflower.MayflowerImage;
 
+//Green ladder class
 public class GreenLadder extends Ladder{
 
     public GreenLadder(){

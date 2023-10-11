@@ -3,7 +3,7 @@ package Actors.Items;
 import Actors.Drake;
 import Utils.Animation;
 import Utils.CollectableAnimatedActor;
-
+//Banana actor used for health and has all attributes of Collectable
 public class Banana extends Collectable {
 
     Drake drake;

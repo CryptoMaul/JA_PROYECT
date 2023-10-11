@@ -3,6 +3,7 @@ package Actors.Items;
 import Actors.Drake;
 import Utils.Animation;
 
+//Apple actor that uses all attributes from collectable, used as a token to get out of levels
 public class Apple extends Collectable {
 
     Drake drake;

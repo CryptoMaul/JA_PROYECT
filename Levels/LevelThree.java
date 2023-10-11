@@ -15,10 +15,12 @@ import mayflower.Color;
 import mayflower.Mayflower;
 import mayflower.World;
 
+//Level three
 public class LevelThree extends World {
 
     Drake drake;
 
+    //Constructor takes the score and health from the past level
     public LevelThree(int s, int h){
         setBackground("Pixel Adventure 1/BackGround3.png");
         addGroundTiles();
@@ -46,6 +48,7 @@ public class LevelThree extends World {
         }
     }
 
+    //Methods to add elements
     public void addGroundTiles(){
         String[][] levelSetup = LevelSetup.ViewsLevelThree;
         for(int i = 0; i < levelSetup.length; i++){

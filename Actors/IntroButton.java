@@ -5,6 +5,7 @@ import mayflower.Mayflower;
 
 import java.awt.event.ActionListener;
 
+//Intro button actor to start the game from title screen
 public class IntroButton extends Actor {
 
     public IntroButton(){

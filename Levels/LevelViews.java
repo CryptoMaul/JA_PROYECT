@@ -22,6 +22,7 @@ public class LevelViews extends World {
     Font score;
     Font lives;
 
+    //First level
     public LevelViews(){
         setBackground("Pixel Adventure 1/BackGround1.png");
         drake = new Drake();
@@ -32,7 +33,7 @@ public class LevelViews extends World {
         addFrog();
         addLadders();
         addObject(drake, 100, 100);
-        addObject(new SmasherAnimatedActor(),100,100);
+        addObject(new SmasherAnimatedActor(80),285,80);
         showText("Score : " + drake.getScore(), 20 , 60, 80, Color.WHITE);
         showText("Lives : " + drake.getLives(), 20 , 760, 80, Color.WHITE);
         System.out.println(drake.getWorld());
@@ -48,6 +49,7 @@ public class LevelViews extends World {
         }
     }
 
+    //Methods to add elements
     public void addGroundTiles(){
         String[][] levelSetup = LevelSetup.ViewsLevelOne;
         for(int i = 0; i < levelSetup.length; i++){
