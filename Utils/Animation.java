@@ -5,6 +5,7 @@ import mayflower.*;
 import java.util.Arrays;
 
 
+//Class that loops through an array of images to create an animation
 public class Animation{
 
     private final MayflowerImage[] frames;
@@ -19,10 +20,6 @@ public class Animation{
             frames[i].scale(100,87);
         }
     }
-    public int getFrameRate()
-    {
-        return framerate;
-    }
     public MayflowerImage getNextFrame()
     {
         MayflowerImage placeholder= frames[currentFrame];
@@ -34,11 +31,6 @@ public class Animation{
         }
         return placeholder;
     }
-    public void Transparency(int x){
-        for(MayflowerImage frame:frames){
-            frame.setTransparency(x);
-        }
-    }
     public void setScale(int x,int y){
         for(MayflowerImage frame:frames){
             frame.scale(x,y);
@@ -47,11 +39,6 @@ public class Animation{
     public void mirrorHorizontally(){
         for(MayflowerImage frame:frames){
             frame.mirrorHorizontally();
-        }
-    }
-    public void setBounds(int x, int y, int w, int h){
-        for(MayflowerImage frame:frames){
-            frame.crop(x,y,w,h);
         }
     }
 }

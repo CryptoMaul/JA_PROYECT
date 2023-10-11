@@ -2,6 +2,7 @@ package Utils;
 
 import mayflower.*;
 
+//Animated actor from lab that sets animations based on what setAnimation gets as a parameter
 public class AnimatedActor extends GravityActor{
     private Animation animation;
     private final Timer timer = new Timer(1000);

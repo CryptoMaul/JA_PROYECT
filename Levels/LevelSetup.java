@@ -1,5 +1,6 @@
 package Levels;
 
+//All the levels in 2d arrays organized here for ease of usage
 public class LevelSetup {
 
     public static int itemNumber = 0;
@@ -55,6 +56,7 @@ public class LevelSetup {
                                       {"bS", "l", "", "", "", "", "", "", "", "", "", "", "s", "", "s", "", "s", "", "", "bS"},
                                       {"bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS", "bS"}};
 
+    //Adding random items in an array
     public static void addRandomItem(String[][] arr, String item, String groundName){
 
         for(int i = 1; i < arr.length - 1; i++) {
@@ -67,6 +69,7 @@ public class LevelSetup {
         }
     }
 
+    //method to see if an index is empty
     public static boolean isEmpty(String[][] arr, int i, int j, String groundName){
         return arr[i][j].equals("") && !arr[i + 1][j].equals("s") && arr[i + 1][j].equals(groundName) && !(arr[i][j+1].equals("s") || arr[i][j-1].equals("s"));
     }

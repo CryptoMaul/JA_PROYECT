@@ -4,6 +4,7 @@ import Actors.IntroButton;
 import mayflower.Mayflower;
 import mayflower.World;
 
+//Title screen to start game
 public class IntroWorld extends World {
 
     IntroButton b;

@@ -6,16 +6,17 @@ import Actors.Ground.Ladders.Ladder;
 import mayflower.*;
 
 
+//Class mainly for actor gravity and jump for the playable actor
 public class GravityActor extends Actor{
-    //hey
-    final int initialVelocity = 25;
-    private int increase = 0;
+    //
+    final int INITIAL_VELOCITY = 25;
     private boolean jump = false;
     private int acc = 2;
     private int velocity;
     private boolean justJumped;
 
 
+    //Act method decides if the actor can jump, the speed it jumps up, the movement of the actor towards the ground
     public void act(){
         int x = getX();
         int y = getY();
@@ -33,7 +34,7 @@ public class GravityActor extends Actor{
         }
 
         if(!jump && !isBlockedDown()){
-            setLocation(x, y+initialVelocity);
+            setLocation(x, y+ INITIAL_VELOCITY);
 
             velocity += acc;
                 System.out.println("ran");
@@ -41,13 +42,14 @@ public class GravityActor extends Actor{
             //velocity += acc;
         }
 
+        //Conditionals if the actor can jump or not
         if(isTouchingFake()){
             jump = true;
             setLocation(x, y);
             velocity = 0;
         }
 
-        if(isBlocked()) {
+        if(isBlocked() && !isTouchingFake()) {
             jump = false;
             if (isBlocked())
                 setLocation(x, y);
@@ -65,9 +67,7 @@ public class GravityActor extends Actor{
 
 
     }
-    public boolean hasJustJumped() {
-        return justJumped;
-    }
+
     public boolean isBlocked(){
 
         return isTouching(Ground.class);
@@ -106,7 +106,7 @@ public class GravityActor extends Actor{
     }
 
     public void setVelocity() {
-        this.velocity = initialVelocity;
+        this.velocity = INITIAL_VELOCITY;
     }
 
     public int getVelocity() {

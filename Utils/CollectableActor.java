@@ -4,6 +4,7 @@ import mayflower.Actor;
 import mayflower.MayflowerImage;
 import mayflower.Timer;
 
+//Actor for all collectables
 public class CollectableActor extends Actor {
 
     private Animation animation;
@@ -13,6 +14,7 @@ public class CollectableActor extends Actor {
     }
     public void act(){
         if(animation!=null){
+            //Use a timer to change the time to go through each frame
             if(timer.isDone()){
                 timer.reset();
                 MayflowerImage frame = animation.getNextFrame();

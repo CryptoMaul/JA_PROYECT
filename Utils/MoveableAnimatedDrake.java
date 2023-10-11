@@ -1,11 +1,13 @@
 package Utils;
 
 import Actors.Enemies.FrogMan;
+import Actors.Enemies.SmasherAnimatedActor;
 import Actors.Ground.Ladders.Ladder;
 import Actors.Items.Collectable;
 import Actors.Spike;
 import mayflower.*;
 
+//Class to make the playable character playable
 public class MoveableAnimatedDrake extends AnimatedActor {
     private Animation runRight;
     private Animation idleRight;
@@ -25,6 +27,7 @@ public class MoveableAnimatedDrake extends AnimatedActor {
         int x = getX();
         int y = getY();
 
+        //Moving left and right and setting animations
         if(getVelocity()>2){
             if(direction.equals("right")){
                 setAnimation(jumpRight);
@@ -50,6 +53,7 @@ public class MoveableAnimatedDrake extends AnimatedActor {
                 }
             }
 
+            //conditionals to jump and to be blocked by solid blocks
         } else if ((Mayflower.isKeyDown(Keyboard.KEY_SPACE) || Mayflower.isKeyDown(Keyboard.KEY_W)) && y > 0 && !isJump() && !isBlocked()) {
             setJump(true);
             setVelocity();
@@ -67,6 +71,7 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             if (isBlocked() || isTouchingFake()) {
                 setLocation(x + 5, y);
             }
+            //Setting climbing animations
         } else if(isClimbing()){
             if(direction.equals("right")){
                 setAnimation(climbRight);
@@ -79,14 +84,15 @@ public class MoveableAnimatedDrake extends AnimatedActor {
             setAnimation(idleLeft);
         }
 
-
+        //Conditional if user input and interactions with game elements should make the actor climb the ladder
         if(isTouching(Ladder.class) && Mayflower.isKeyDown(Keyboard.KEY_UP)){
             setLocation(getX(), getY() - 5);
         } else if(isTouching(Ladder.class) && Mayflower.isKeyDown(Keyboard.KEY_DOWN) && !isBlocked()){
             setLocation(getX(), getY() + 5);
         }
 
-        if(isTouching()){
+        //Touching Enemies will cause a loss in a life and reset of position
+        if(isTouchingEnemy()){
             health--;
             this.getWorld().showText("Lives : " + this.getLives(), 20 , 760, 80, Color.WHITE);
             setLocation(100, 100);
@@ -96,6 +102,7 @@ public class MoveableAnimatedDrake extends AnimatedActor {
         super.act();
     }
 
+    //Modifiers and accessor methods
     public void setAnimation(Animation a) {
         super.setAnimation(a);
     }
@@ -133,8 +140,8 @@ public class MoveableAnimatedDrake extends AnimatedActor {
     public void setClimbRight(Animation a){climbRight = a;}
     public void setClimbLeft(Animation a){climbLeft = a;}
 
-    public boolean isTouching(){
-        return isTouching(Spike.class) || isTouching(FrogMan.class);
+    public boolean isTouchingEnemy(){
+        return isTouching(Spike.class) || isTouching(FrogMan.class) || isTouching(SmasherAnimatedActor.class);
     }
 
     public boolean isClimbing(){return isTouching(Ladder.class) && (Mayflower.isKeyDown(Keyboard.KEY_UP) || Mayflower.isKeyDown(Keyboard.KEY_DOWN));}

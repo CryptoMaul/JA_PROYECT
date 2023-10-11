@@ -3,6 +3,7 @@ package Levels;
 import mayflower.Mayflower;
 import mayflower.World;
 
+//Game over win screen
 public class OutroWin extends World {
 
     public OutroWin(int s){

@@ -2,6 +2,8 @@ package Actors.Ground;
 
 import Actors.Ground.Ground;
 import mayflower.*;
+
+//Grey stone ground
 public class GreyStone extends Ground {
 
     public GreyStone(){

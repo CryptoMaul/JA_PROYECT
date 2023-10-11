@@ -2,6 +2,7 @@ package Actors;
 
 import mayflower.MayflowerImage;
 
+//Spike trap class, logic is in the DrakeMovableActor class
 public class Spike extends Enemy{
 
     public Spike(){
