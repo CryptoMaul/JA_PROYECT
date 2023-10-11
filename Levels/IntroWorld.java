@@ -15,13 +15,13 @@ public class IntroWorld extends World {
         setBackground("Pixel Adventure 1/IntroBackground.png");
         addObject(b, 420, 470);
 
-        Mayflower.playMusic("Pixel Adventure 1/drake1.mp3");
+        Mayflower.playMusic("Pixel Adventure 1/drake2.mp3");
     }
 
     @Override
     public void act() {
         if(b.isClicked()){
-            Mayflower.stopMusic("Pixel Adventure 1/drake1.mp3");
+            Mayflower.stopMusic("Pixel Adventure 1/drake2.mp3");
             Mayflower.setWorld(new LevelViews());
         }
     }

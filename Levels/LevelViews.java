@@ -37,16 +37,16 @@ public class LevelViews extends World {
         showText("Score : " + drake.getScore(), 20 , 60, 80, Color.WHITE);
         showText("Lives : " + drake.getLives(), 20 , 760, 80, Color.WHITE);
         System.out.println(drake.getWorld());
-        Mayflower.playMusic("Pixel Adventure 1/drake2.mp3");
+        Mayflower.playMusic("Pixel Adventure 1/drake1.mp3");
     }
 
     @Override
     public void act() {
         if(drake.isDone()) {
-            Mayflower.stopMusic("Pixel Adventure 1/drake2.mp3");
             Mayflower.setWorld(new LevelTwo(drake.getScore(), drake.getLives()));
         }
         if(drake.isDead()){
+            Mayflower.stopMusic("Pixel Adventure 1/drake1.mp3");
             Mayflower.setWorld(new OutroLose());
         }
     }

@@ -12,6 +12,7 @@ public class OutroLose extends World {
         b = new IntroButton();
         setBackground("Pixel Adventure 1/OutroLose.png");
         addObject(b, 420, 470);
+        Mayflower.playMusic("Pixel Adventure 1/drake2.mp3");
     }
 
     @Override

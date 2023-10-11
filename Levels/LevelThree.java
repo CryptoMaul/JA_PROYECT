@@ -36,7 +36,7 @@ public class LevelThree extends World {
         showText("Score : " + drake.getScore(), 20 , 60, 80, Color.WHITE);
         showText("Lives : " + drake.getLives(), 20 , 760, 80, Color.WHITE);
         System.out.println(drake.getWorld());
-        Mayflower.playMusic("Pixel Adventure 1/drake1.mp3");
+
     }
 
     @Override
@@ -46,6 +46,7 @@ public class LevelThree extends World {
             Mayflower.setWorld(new OutroWin(drake.getScore()));
         }
         if(drake.isDead()){
+            Mayflower.stopMusic("Pixel Adventure 1/drake1.mp3");
             Mayflower.setWorld(new OutroLose());
         }
     }
