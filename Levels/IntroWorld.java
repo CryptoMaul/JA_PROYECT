@@ -12,6 +12,7 @@ public class IntroWorld extends World {
         b = new IntroButton();
         setBackground("Pixel Adventure 1/IntroBackground.png");
         addObject(b, 420, 470);
+        Mayflower.playMusic("Pixel Adventure 1/drake1.mp3");
     }
 
     @Override

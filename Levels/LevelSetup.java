@@ -44,7 +44,7 @@ public class LevelSetup {
                                       {"bS", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "bS"},
                                       {"bS", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "bS"},
                                       {"bS", "", "", "", "", "", "", "", "", "", "bS", "", "", "", "", "", "", "", "", ""},
-                                      {"bS", "", "", "", "", "s", "", "", "", "bS", "", "", "", "bS", "bS", "s", "", "", "", ""},
+                                      {"bS", "", "", "", "s", "", "", "", "", "bS", "", "", "", "bS", "bS", "s", "", "", "", ""},
                                       {"bS", "", "bS", "bS", "bS", "", "", "", "", "", "", "", "", "", "bS", "bS", "", "", "", ""},
                                       {"bS", "l", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "bS", "bS", "bS"},
                                       {"bS", "l", "", "", "", "", "", "bS", "", "", "", "", "", "", "", "", "", "", "", "bS"},
@@ -68,7 +68,7 @@ public class LevelSetup {
     }
 
     public static boolean isEmpty(String[][] arr, int i, int j, String groundName){
-        return arr[i][j].equals("") && !arr[i + 1][j].equals("s") && arr[i + 1][j].equals(groundName);
+        return arr[i][j].equals("") && !arr[i + 1][j].equals("s") && arr[i + 1][j].equals(groundName) && !(arr[i][j+1].equals("s") || arr[i][j-1].equals("s"));
     }
 
 
