@@ -21,6 +21,7 @@ public class IntroWorld extends World {
     @Override
     public void act() {
         if(b.isClicked()){
+            Mayflower.stopMusic("Pixel Adventure 1/drake1.mp3");
             Mayflower.setWorld(new LevelViews());
         }
     }

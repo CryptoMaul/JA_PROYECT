@@ -42,6 +42,7 @@ public class LevelThree extends World {
     @Override
     public void act() {
         if(drake.isDone()) {
+            Mayflower.stopMusic("Pixel Adventure 1/drake1.mp3");
             Mayflower.setWorld(new OutroWin(drake.getScore()));
         }
         if(drake.isDead()){
